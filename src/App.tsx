@@ -13,8 +13,6 @@ const walletConnectParams = {
       methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
       chains: [
         'polkadot:91b171bb158e2d3848fa23a9f1c25182', // polkadot
-        'polkadot:afdc188f45c71dacbaa0b62e16a91f72', // hydradx
-        'polkadot:0f62b701fb12d02237a33b84818c11f6' // turing network
       ],
       events: ['chainChanged", "accountsChanged']
     }
@@ -63,6 +61,22 @@ function App() {
       const walletConnectSession = await approval();
 
       console.log({walletConnectSession});
+
+      const address = walletConnectSession.namespaces.polkadot.accounts[0];
+
+      const requestResult = await provider.client.request({
+        topic: walletConnectSession.topic,
+        chainId: 'polkadot:91b171bb158e2d3848fa23a9f1c25182',
+        request: {
+          method: 'polkadot_signTransaction',
+          params: {
+            address,
+            transactionPayload: { foo: "bar"}
+          }
+        }
+      });
+
+      console.log({requestResult});
 
     } catch (error: any) {
       console.error({ error });
