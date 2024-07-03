@@ -71,7 +71,7 @@ function App() {
           method: 'polkadot_signTransaction',
           params: {
             address,
-            transactionPayload: { foo: "bar"}
+            transactionPayload: { ping: "ping"}
           }
         }
       });
