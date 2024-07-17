@@ -64,6 +64,14 @@ function App() {
 
       const address = walletConnectSession.namespaces.polkadot.accounts[0];
 
+      const payload = {
+        method: "substates.get",
+        params: {
+          substate_id: { Component: "component_d43f1d674a0df0579354659d1b0c8dd4a397b072afa9dd027e41c8bc" } 
+        }
+      };
+      console.log({payload});
+
       const requestResult = await provider.client.request({
         topic: walletConnectSession.topic,
         chainId: 'polkadot:91b171bb158e2d3848fa23a9f1c25182',
@@ -71,7 +79,7 @@ function App() {
           method: 'polkadot_signTransaction',
           params: {
             address,
-            transactionPayload: { ping: "ping"}
+            transactionPayload: payload
           }
         }
       });
