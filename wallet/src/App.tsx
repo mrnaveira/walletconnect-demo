@@ -33,15 +33,15 @@ function App() {
       const session = await wallet.approveSession({
         id: proposal.id,
         namespaces: {
-          polkadot: {
-            methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
+          tari: {
+            methods: ['tari_signTransaction', 'tari_signMessage', 'tari_getSubstate'],
             chains: [
-              'polkadot:91b171bb158e2d3848fa23a9f1c25182', // polkadot
+              'tari:devnet',
             ],
             events: ['chainChanged", "accountsChanged'],
             accounts: [
-              "polkadot:91b171bb158e2d3848fa23a9f1c25182:8PSDc8otpZMGviGVSwzCzBCLPi5WuT8K9phaUWbfUtSYet3",
-              "polkadot:91b171bb158e2d3848fa23a9f1c25182:A1MbgM4mdFBH4LiTPZWmtVZ3zBGUJApN24FoSK32ZACPGP6"
+              // Here a real wallet would return the active account address
+              "tari:devnet:component_d43f1d674a0df0579354659d1b0c8dd4a397b072afa9dd027e41c8bc",
             ],
           }
         }
@@ -61,9 +61,9 @@ function App() {
       const { request } = params;
 
       switch (request.method) {
-        case 'polkadot_signTransaction':
-          const { ping } = request.params.transactionPayload;
-          console.log({ping});
+        case 'tari_getSubstate':
+          const payload = request.params;
+          console.log({payload});
 
           // create the response containing the signature in the result
           const response = { id, result: { pong: 'pong' }, jsonrpc: '2.0' }

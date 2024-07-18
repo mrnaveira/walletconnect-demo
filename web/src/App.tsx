@@ -9,10 +9,10 @@ const projectId = "1825b9dd9c17b5a33063ae91cbc48a6e";
 
 const walletConnectParams = {
   requiredNamespaces: {
-    polkadot: {
-      methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
+    tari: {
+      methods: ['tari_signTransaction', 'tari_signMessage', 'tari_getSubstate'],
       chains: [
-        'polkadot:91b171bb158e2d3848fa23a9f1c25182', // polkadot
+        'tari:devnet',
       ],
       events: ['chainChanged", "accountsChanged']
     }
@@ -62,7 +62,7 @@ function App() {
 
       console.log({walletConnectSession});
 
-      const address = walletConnectSession.namespaces.polkadot.accounts[0];
+      const address = walletConnectSession.namespaces.tari.accounts[0];
 
       const payload = {
         method: "substates.get",
@@ -74,12 +74,11 @@ function App() {
 
       const requestResult = await provider.client.request({
         topic: walletConnectSession.topic,
-        chainId: 'polkadot:91b171bb158e2d3848fa23a9f1c25182',
+        chainId: 'tari:devnet',
         request: {
-          method: 'polkadot_signTransaction',
+          method: 'tari_getSubstate',
           params: {
-            address,
-            transactionPayload: payload
+            substate_id: { Component: "component_d43f1d674a0df0579354659d1b0c8dd4a397b072afa9dd027e41c8bc" } 
           }
         }
       });
