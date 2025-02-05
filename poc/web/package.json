@@ -1,5 +1,5 @@
 {
-  "name": "walletconnect-demo",
+  "name": "walletconnect-demo-poc-web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
