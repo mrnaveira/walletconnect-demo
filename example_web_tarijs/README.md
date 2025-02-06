@@ -13,6 +13,17 @@ To run in development mode:
 npm install
 npm run dev
 ```
+Open the URL as indicated on the command line.
+
+To connect to a Tari Wallet Daemon:
+- Click on the `Connect` Button.
+- Select the `WalletConnect` option on the modal.
+- Copy the connection URL from the `WalletConnect` connection.
+- Go to the Tari Wallet Daemon, click on `Connect with WalletConnect` and approve.
+
+The example site is now connected to the Tari Wallet Daemon and will automatically perform some calls to it, including sending a transaction. You can inspect the results of all those actions on the JavaScript console in your browser.
+
+## Distribution
 
 For building and distribution:
 ```shell
