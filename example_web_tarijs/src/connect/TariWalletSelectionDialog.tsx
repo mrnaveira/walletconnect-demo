@@ -95,25 +95,25 @@ export function TariWalletSelectionDialog(props: WalletSelectionProps) {
         </Stack>
         <Divider sx={{ mt: 3, mb: 3 }} variant="middle" />
         <Grid container spacing={2} justifyContent="center">
-          <Grid item xs={4}>
+          <Grid item>
+            <WalletConnectionMethodCard
+              img={WalletConnectLogo}
+              text="WalletConnect"
+              callback={onWalletConnectClick}
+            ></WalletConnectionMethodCard>
+          </Grid>
+          <Grid item >
             <WalletConnectionMethodCard
               img={TariLogo}
               text="Tari Universe"
               callback={onTariUniverseClick}
             ></WalletConnectionMethodCard>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item>
             <WalletConnectionMethodCard
               img={MetamaskLogo}
               text="MetaMask"
               callback={onMetamaskClick}
-            ></WalletConnectionMethodCard>
-          </Grid>
-          <Grid item xs={4}>
-            <WalletConnectionMethodCard
-              img={WalletConnectLogo}
-              text="WalletConnect"
-              callback={onWalletConnectClick}
             ></WalletConnectionMethodCard>
           </Grid>
         </Grid>
@@ -128,11 +128,11 @@ function WalletConnectionMethodCard({ img, text, callback }: any) {
       variant="outlined"
       elevation={0}
       sx={{
-        mty: 4,
-        padding: 4,
+        mty: 1,
+        padding: 1,
         borderRadius: 4,
-        width: "175px",
-        height: "175px",
+        width: "150px",
+        height: "150px",
         cursor: "pointer",
       }}
     >

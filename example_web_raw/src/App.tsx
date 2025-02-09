@@ -3,7 +3,6 @@ import UniversalProvider from '@walletconnect/universal-provider';
 import { WalletConnectModal } from '@walletconnect/modal';
 import './App.css'
 
-// TODO: make it an envvar
 const projectId = "1825b9dd9c17b5a33063ae91cbc48a6e";
 
 const walletConnectParams = {

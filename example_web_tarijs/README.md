@@ -21,7 +21,9 @@ To connect to a Tari Wallet Daemon:
 - Copy the connection URL from the `WalletConnect` connection.
 - Go to the Tari Wallet Daemon, click on `Connect with WalletConnect` and approve.
 
-The example site is now connected to the Tari Wallet Daemon and will automatically perform some calls to it, including sending a transaction. You can inspect the results of all those actions on the JavaScript console in your browser.
+The example site is now connected to the Tari Wallet Daemon.
+
+By clicking on the `Run` button, the web will perform some calls to the wallet, including sending a transaction. You can inspect the results of all those actions on the JavaScript console in your browser.
 
 ## Distribution
 

@@ -11,3 +11,8 @@ dist
 stats.html
 
 .eslintcache
+
+.env
+
+# Ignore OS files
+.DS_Store
